@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  zk:
+    image: jplock/zookeeper:3.5.2-alpha
+    ports:
+      - 2181:2181
+
+  fan:
+    build: drf_sample
+    command: bash -c './manage.py migrate && ./manage.py runserver 0.0.0.0:80'
+    depends_on:
+      - zk
