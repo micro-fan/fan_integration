@@ -8,6 +8,8 @@ services:
 
   fan:
     build: drf_sample
-    command: bash -c './manage.py migrate && ./manage.py runserver 0.0.0.0:80'
+    command: ./run.sh
     depends_on:
       - zk
+    volumes:
+      - ../fan:/fan
