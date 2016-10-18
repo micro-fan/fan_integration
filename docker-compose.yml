@@ -13,5 +13,6 @@ services:
       - zk
     volumes:
       - ../fan:/fan
+      - ./drf_sample:/code
     environment:
       - ZK_HOST=zk
