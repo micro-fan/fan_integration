@@ -13,3 +13,5 @@ services:
       - zk
     volumes:
       - ../fan:/fan
+    environment:
+      - ZK_HOST=zk

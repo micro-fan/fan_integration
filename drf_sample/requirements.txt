@@ -1,3 +1,17 @@
-django==1.10.1
+django==1.10.2
 djangorestframework==3.4.6
 psycopg2==2.6.2
+
+green==2.5.1
+ipython==5.0.0
+# install from master until version 0.4.4 is out
+mypy-lang==0.4.4
+typed_ast==0.5.5
+opentracing
+basictracer==2.1.0
+aioredis==0.2.8
+asynqp==0.5.1
+requests==2.11.1
+pyyaml==3.12
+aiozk>=0.1.7
+tipsi_tools>=0.13.0

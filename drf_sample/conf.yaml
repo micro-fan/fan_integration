@@ -1,0 +1,23 @@
+base: &base
+  host: '%{HOSTNAME}'
+  port: 80
+
+services:
+  - name: app.author
+    transport: http
+    version: '1.0.0'
+    <<: *base
+    methods:
+      - name: create
+        url: '/app/author/'
+        method: POST
+      - name: list
+        url: '/app/author/'
+      - name: get
+        url: '/app/author/{id}/'
+      - name: delete
+        url: '/app/author/{id}/'
+        method: DELETE
+      - name: update
+        url: '/app/author/{id}/'
+        method: PATCH
