@@ -7,8 +7,8 @@ sys.path.append('/fan/')
 
 from fan.sync import get_context  # noqa
 
-ctx = get_context()
-with ctx.span:
+
+with get_context() as ctx:
     author = ctx.rpc.app.author
 
     cr = author.create(name='lol')
