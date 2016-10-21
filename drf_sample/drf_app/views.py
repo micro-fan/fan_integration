@@ -15,7 +15,6 @@ class AuthorSerializer(serializers.ModelSerializer):
         model = Author
 
 
-
 class AuthorViewset(viewsets.ModelViewSet):
 
     log = logging.getLogger('AuthorViewset')
@@ -23,6 +22,6 @@ class AuthorViewset(viewsets.ModelViewSet):
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
 
-    def create(self, request, *args, **kwargs):
-        self.log.error('RDU: {}'.format(request.META['HTTP_OT_TRACE_ID']))
-        return super().create(request, *args, **kwargs)
+    def destroy(self, request, *args, **kwargs):
+        self.log.debug('rpc.list before delete: {}'.format(request.ctx.rpc.app.author.list()))
+        return super().destroy(request, *args, **kwargs)
