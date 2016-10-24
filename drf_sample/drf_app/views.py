@@ -23,5 +23,6 @@ class AuthorViewset(viewsets.ModelViewSet):
     serializer_class = AuthorSerializer
 
     def destroy(self, request, *args, **kwargs):
+        self.log.debug('META: {}'.format(request.META))
         self.log.debug('rpc.list before delete: {}'.format(request.ctx.rpc.app.author.list()))
         return super().destroy(request, *args, **kwargs)

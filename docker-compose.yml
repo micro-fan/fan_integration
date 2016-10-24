@@ -16,3 +16,8 @@ services:
       - ./drf_sample:/code
     environment:
       - ZK_HOST=zk
+
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - 9411:9411

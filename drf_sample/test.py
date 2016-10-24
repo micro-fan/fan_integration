@@ -8,7 +8,7 @@ sys.path.append('/fan/')
 from fan.sync import get_context  # noqa
 
 
-with get_context() as ctx:
+with get_context('test.py') as ctx:
     author = ctx.rpc.app.author
 
     cr = author.create(name='lol')
@@ -27,8 +27,9 @@ with get_context() as ctx:
     print('list2: {}'.format(lst))
 
     for l in lst:
+        print('delete : {}'.format(l))
         dl = author.delete(**l)
-        print('delete: {} => {}'.format(l, dl))
+    author.delete(id=1)
 
 
 def get_spans():
