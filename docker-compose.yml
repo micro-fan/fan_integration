@@ -13,9 +13,12 @@ services:
       - zk
     volumes:
       - ../fan:/fan
+      - ../../tipsi_tools:/tipsi_tools
       - ./drf_sample:/code
     environment:
       - ZK_HOST=zk
+      - ZIPKIN=zipkin:9411
+      - PYTHONPATH=/fan:/tipsi_tools
 
   zipkin:
     image: openzipkin/zipkin

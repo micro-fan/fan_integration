@@ -6,6 +6,7 @@ import json
 sys.path.append('/fan/')
 
 from fan.sync import get_context  # noqa
+from fan.exceptions import RPCHttpError
 
 
 with get_context('test.py') as ctx:
@@ -29,7 +30,12 @@ with get_context('test.py') as ctx:
     for l in lst:
         print('delete : {}'.format(l))
         dl = author.delete(**l)
-    author.delete(id=1)
+    try:
+        author.delete(id=1)
+    except RPCHttpError as e:
+        assert e.response.status_code == 404
+    else:
+        raise Exception
 
 
 def get_spans():
